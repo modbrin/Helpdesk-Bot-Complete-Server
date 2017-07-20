@@ -159,8 +159,8 @@ function getArticleList() {
     success: function(data) {
 			//получаем ответ от сервера, преобразуем его в объект
       titles = JSON.parse(data);
-      if(titles["details"]){
-        console.log(data["details"]);
+      if(titles["detail"]){
+        console.log(data["detail"]);
       }
 			//составляем список
 			constructList();
@@ -241,22 +241,18 @@ function getArticleById(id) {
     contentType: false,
     success: function(data) {
       data = JSON.parse(data);
-      if(data["details"]){
-        console.log(data["details"]);
+      if(data["detail"]){
+        console.log(data["detail"]);
       }
 			//обновляем данные в переменных
-			if (!data["error"]) {
-        article_id = data["id"];
-        article_title = data["title"];
-        article_text = data["text"];
-        article_tokens = data["keywords"];
-        article_views = data["viewCount"];
-        article_likes = data["likeCount"];
-        setArticleView();
-        constructList();
-      } else {
-        alert(data["error"]);
-      }
+      article_id = data["id"];
+      article_title = data["title"];
+      article_text = data["text"];
+      article_tokens = data["keywords"];
+      article_views = data["viewCount"];
+      article_likes = data["likeCount"];
+      setArticleView();
+      constructList();
 
     },
     error: function(xhr, ajaxOptions, thrownError) {
@@ -321,15 +317,11 @@ function updateArticle(id, title, text, tokens) {
     contentType: false,
     success: function(data) {
       data = JSON.parse(data);
-      if(data["details"]){
-        console.log(data["details"]);
+      if(data["detail"]){
+        console.log(data["detail"]);
       }
       //Получаем данные, при наличии ошибки сообщаем о ней
-			if (data["error"]) {
-        alert("Something went wrong");
-      } else {
-        alert("Saved");
-      }
+      alert("Saved");
 			//открываем статью заново
       getArticleById(id);
       document.getElementById("btn_save").disabled = false;
@@ -379,16 +371,12 @@ function deleteArticle(id) {
     contentType: false,
     success: function(data) {
       data = JSON.parse(data);
-      if(data["details"]){
-        console.log(data["details"]);
+      if(data["detail"]){
+        console.log(data["detail"]);
       }
       // Получаем ответ от сервера, если нет ошибки очищаем редактор и обновляем список статей
-			if (data["error"]) {
-        alert("Something went wrong")
-      } else {
-      	getArticleList();
-      	clear_article_view();
-			}
+      getArticleList();
+      clear_article_view();
     },
     error: function(xhr, ajaxOptions, thrownError) {
 			//Если же возникла проблема с соединенем или сбой в работе сервера
@@ -409,8 +397,8 @@ function createArticle() {
     contentType: false,
     success: function(data) {
       data = JSON.parse(data);
-      if(data["details"]){
-        console.log(data["details"]);
+      if(data["detail"]){
+        console.log(data["detail"]);
       }
       if(data['id']){
         openArticle(data['id']);

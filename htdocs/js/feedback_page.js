@@ -89,15 +89,9 @@ function get_feedback() {
     contentType: false,
     success: function(data) {
       data = JSON.parse(data);
-      //При возникновении ошибки, предупреждаем пользователя о сбое в работе ошибка пишется в лог браузера
-      if (data["error"]) {
-        alert("Something went wrong");
-        console.log(data["error"]);
-      } else {
-        //Когда данные получены успешно, передаем их в функцию вывода
-        feedback_container = data;
-        filterRating(document.getElementById('rating_selector').value);
-      }
+      //Когда данные получены успешно, передаем их в функцию вывода
+      feedback_container = data;
+      filterRating(document.getElementById('rating_selector').value);
     },
     error: function(xhr, ajaxOptions, thrownError) {
       //Если же возникла проблема с соединенем или сбой в работе сервера
@@ -121,14 +115,8 @@ function delete_feedback(id) {
     processData: false,
     contentType: false,
     success: function(data) {
-      //При возникновении ошибки, предупреждаем пользователя о сбое в работе ошибка пишется в лог браузера
-      if (data["error"]) {
-        alert("Something went wrong");
-        console.log(data["error"]);
-      } else {
-        //Когда данные получены успешно, передаем их в функцию вывода
-        get_feedback();
-      }
+      //Когда данные получены успешно, передаем их в функцию вывода
+      get_feedback();
     },
     error: function(xhr, ajaxOptions, thrownError) {
       //Если же возникла проблема с соединенем или сбой в работе сервера

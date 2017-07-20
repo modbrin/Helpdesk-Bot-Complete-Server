@@ -119,8 +119,8 @@ function get_user_list(){
 			contentType: false,
 			success: function (data) {
 				list_data = JSON.parse(data);
-				if(list_data["details"]){
-					console.log(data["details"]);
+				if(list_data["detail"]){
+					console.log(data["detail"]);
 				}
 				construct_list();
 			},
@@ -140,8 +140,8 @@ function createUser(){
 			contentType: false,
 			success: function (data) {
 				data = JSON.parse(data);
-				if(data["details"]){
-					console.log(data["details"]);
+				if(data["detail"]){
+					console.log(data["detail"]);
 				}
 				if(data["id"]){
 					setDisabledUserPanel(false);
@@ -172,18 +172,14 @@ function deleteUser(){
 			contentType: false,
 			success: function (data) {
 				data = JSON.parse(data);
-				if(data["details"]){
-					console.log(data["details"]);
+				if(data["detail"]){
+					console.log(data["detail"]);
 				}
-				if(data["error"]){
-					alert("Something went wrong");
-				}else{
-					clear_fields();
-					get_user_list();
-					setDisabledUserPanel(true);
-					document.getElementById('email_field').style.borderColor = "";
-					document.getElementById('alias_field').style.borderColor = "";
-				}
+				clear_fields();
+				get_user_list();
+				setDisabledUserPanel(true);
+				document.getElementById('email_field').style.borderColor = "";
+				document.getElementById('alias_field').style.borderColor = "";
 			},
 			error: function (xhr, ajaxOptions, thrownError) {
 				console.log("article list request failed: " + xhr + " with " + thrownError);
@@ -223,17 +219,13 @@ function updateUser(){
 			contentType: false,
 			success: function (data) {
 				data = JSON.parse(data);
-				if(data["details"]){
-					console.log(data["details"]);
+				if(data["detail"]){
+					console.log(data["detail"]);
 				}
-				if(data["error"]){
-					alert("This user already exists");
-				}else{
-					current_email = temp_email;
-					current_alias = temp_alias;
-					document.getElementById('e_show').innerHTML = current_email;
-					document.getElementById('a_show').innerHTML = current_alias;
-				}
+				current_email = temp_email;
+				current_alias = temp_alias;
+				document.getElementById('e_show').innerHTML = current_email;
+				document.getElementById('a_show').innerHTML = current_alias;
 
 				get_user_list();
 			},

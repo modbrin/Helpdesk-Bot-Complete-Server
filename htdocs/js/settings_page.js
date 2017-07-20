@@ -49,15 +49,11 @@ function getContactInfo() {
     success: function(data) {
 			//Парсим данные в JS Object
 			data = JSON.parse(data);
-      if(data["details"]){
-        console.log(data["details"]);
+      if(data["detail"]){
+        console.log(data["detail"]);
       }
       //Проверяем наличие ошибки, если ее нет показываем пользователю сохраненные данные
-			if (data["error"]) {
-        alert("Something went wrong");
-      } else {
-        document.getElementById('contact_field').value = data["info"];
-      }
+      document.getElementById('contact_field').value = data["info"];
     },
     error: function(xhr, ajaxOptions, thrownError) {
 			//Если же возникла проблема с соединенем или сбой в работе сервера
@@ -95,16 +91,11 @@ function updateContactInfo() {
     success: function(data) {
 			//Ответ от сервера парсим
 			data = JSON.parse(data);
-      if(data["details"]){
-        console.log(data["details"]);
+      if(data["detail"]){
+        console.log(data["detail"]);
       }
-      //Проверяем наличие ошибок
-			if (data["error"]) {
-        alert("something went wrong");
-      } else {
-				//Если все прошло успешно, сообщаем что данные успешно сохранены
-        alert("Saved");
-      }
+			//Если все прошло успешно, сообщаем что данные успешно сохранены
+      alert("Saved");
     },
 
     error: function(xhr, ajaxOptions, thrownError) {
