@@ -1,0 +1,15 @@
+Notice: no changes were made to source code of following software.
+
+Quill Rich Text Editor (BSD-3-clause)
+Natural Language Toolkit (Apache 2 License)
+PyMorphy2 (MIT license)
+cryptography (BSD or Apache 2 License)
+Apache2 Server (Apache 2 License)
+ZeroMQ (LGPL-3)
+stop-words plugin
+Django (BSD-3-clause)
+pytelegrambot (LGPL-3)
+Bootstrap framework (MIT license)
+JQuery
+KaTeX (MIT license)
+xlwt plugin (BSD license)

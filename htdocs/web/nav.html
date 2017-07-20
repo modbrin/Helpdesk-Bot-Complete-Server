@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Dashboard</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="../styles/nav_styles.css">
+  <link href="../css/bootstrap.css" rel="stylesheet" />
+  <link href="../css/bootstrap-theme.css" rel="stylesheet" />
+  <script src="../js/jquery-3.2.1.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+</head>
+<style media="screen">
+  @import url('https://fonts.googleapis.com/css?family=Roboto');
+  html {
+    font-family: Roboto;
+  }
+</style>
+
+<script type="text/javascript">
+function logout() {
+
+jQuery.ajax({
+          type: "GET",
+          url: "/myapp/logout",
+          async: false,
+          username: "logmeout",
+          password: "123456",
+          headers: { "Authorization": "Basic xxx" }
+})
+.done(function(){
+    // If we don't get an error, we actually got an error as we expect an 401!
+})
+.fail(function(){
+    // We expect to get an 401 Unauthorized error! In this case we are successfully
+          // logged out and we redirect the user.
+    window.location = "/index.html";
+  });
+
+  return false;
+}
+</script>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <h1 class="main_header" style="font-family: Roboto;">Dashboard</h1>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="nav_tile" onclick="location.href='/web/users.html'">
+          <img src="../styles/users_mult_icon.png" width="150px" style="margin:20px;" alt="Users Icon"> Users
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="nav_tile" onclick="location.href='/web/articles.html'">
+          <img src="../styles/articles_icon.png" width="136px" style="margin:20px" alt="Articles Icon"> Articles
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="nav_tile" onclick="location.href='/web/settings.html'">
+          <img src="../styles/logs_icon.png" width="150px" style="margin:20px;" alt="Logs Icon"> Settings
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="nav_tile" onclick="location.href='/web/feedback.html'">
+          <img src="../styles/feedback_icon.png" width="150px" style="margin:20px;margin-top:50px" alt="Feedback Icon"> Feedback
+        </div>
+      </div>
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+        <div class="nav_tile" onclick="logout()">
+          <img src="../styles/logout_icon.png" width="120px" style="margin:20px;margin-top:30px" alt="Feedback Icon"><br> Log out
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

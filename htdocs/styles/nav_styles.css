@@ -1,0 +1,32 @@
+
+.main_header{
+  font-weight: 200;
+  font-size: 60px;
+}
+.vertical_center{
+  position: relative;
+  transform: translateY(50%)
+}
+.nav_container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.nav_tile{
+  text-align: center;
+  font-size: 25px;
+  margin: 20px;
+  color:#fff;
+  background-color: #00897b;
+  line-height: 15px;
+  width: 250px;
+  height: 250px;
+  cursor: pointer;
+}
+.tile_left{
+  float: left;
+}
+.tile_right{
+  float: right;
+}

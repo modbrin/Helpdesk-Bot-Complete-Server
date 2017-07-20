@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Settings</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="../styles/nav_styles.css">
+  <link rel="stylesheet" type="text/css" href="../styles/list_styles.css">
+  <link href="../css/bootstrap.css" rel="stylesheet" />
+  <link href="../css/bootstrap-theme.css" rel="stylesheet" />
+  <script src="../js/jquery-3.2.1.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/js_sender.js"></script>
+  <script src="../js/settings_page.js"></script>
+</head>
+<style media="screen">
+  @import url('https://fonts.googleapis.com/css?family=Roboto');
+  html {
+    font-family: Roboto;
+  }
+</style>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <h1 class="main_header" style="font-family: Roboto;">Settings</h1>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+        <input class="button_regular" type="button" value="Back" onclick="location.href='/web/nav.html'" style="width:90px;font-size:20px">
+      </div>
+      <div class="col-md-8" style="width:100%;background-color:#a1887f;">
+        <div class="row" style="padding:10px">
+          <h3 style="color:#fff;margin-left:30px">Logs</h3>
+          <input class="button_regular" onclick="window.open('/py_scripts/logs_error.py')" type="button" value="Error logs" style="width:150px;font-size:20px">
+          <input class="button_regular" onclick="window.open('/py_scripts/logs_access.py')" type="button" value="Access logs" style="width:150px;font-size:20px">
+          <input class="button_regular" onclick="window.open('/py_scripts/logs_articles.py')" type="button" value="Article access" style="width:150px;font-size:20px">
+          <input class="button_regular" onclick="location.href = '/py_scripts/download_stats.py'" type="button" value="Download activation stats" style="width:250px;font-size:20px">
+        </div>
+        <div class="row" style="padding:10px;background-color:#725b53;">
+          <h3 style="color:#fff;margin-left:30px">Change Account password</h3>
+          <input id="f_old" type="password" placeholder="Current password" style="margin:10px">
+          <input id="f_new" type="password" placeholder="New password" style="margin:10px">
+          <button id="toggle" type="button"><span id="icon" class="glyphicon glyphicon-eye-close"></span></button><br>
+          <input class="button_regular" onclick="changePassword()" type="button" value="Update" style="width:90px;font-size:20px">
+        </div>
+        <div class="row" style="padding:10px;background-color:#a1887f;">
+          <h3 style="color:#fff;margin-left:30px">IU IT Department contact info</h3>
+          <textarea id='contact_field' name="name" rows="4" cols="70" placeholder="To be shown in bot on contacts request."></textarea><br>
+          <input class="button_regular" onclick="updateContactInfo();" type="button" value="Save" style="width:90px;font-size:20px">
+        </div>
+      </div>
+      <div class="col-md-2">
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

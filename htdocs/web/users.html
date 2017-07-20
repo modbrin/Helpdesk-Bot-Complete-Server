@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Users</title>
+  <link rel="stylesheet" type="text/css" href="/styles/list_styles.css">
+  <link href="/css/bootstrap.css" rel="stylesheet" />
+  <link href="/css/bootstrap-theme.css" rel="stylesheet" />
+  <script src="/js/jquery-3.2.1.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/list_handler.js"></script>
+</head>
+<style media="screen">
+  @import url('https://fonts.googleapis.com/css?family=Roboto');
+</style>
+
+<body>
+  <div class="top">
+    <div class="row" style="text-align:center">
+      <input type="button" value="<" class="button_regular" style="float:left;">
+      <h3 style="color:#fff;font-family:Roboto;font-weight:200;">Edit Users</h3>
+    </div>
+  </div>
+  <div class="side left">
+    <nav class="simple_list_nav">
+      <ul id='main_list' class="simple_list">
+      </ul>
+    </nav>
+  </div>
+  <div class="side right">
+    <nav class="simple_list_nav">
+      <br>
+      <input class="button_regular" type="button" name="Back" value="Back" onclick="location.href='/web/nav.html'">
+      <h1 class="header" style="font-weight:200;font-family:Roboto;margin-left:20px">Edit User Data</h1>
+      <div class="row" style="margin:10px;width:100%;font-size:20px;">
+        <input id='search_field' type="text" style="width:80%" placeholder="Search" onpaste="setTimeout(make_search(),5)" onkeyup="setTimeout(make_search(),5)">
+      </div>
+      <p style="margin:10px;font-size:20px;">Selected: <span id="e_show"></span> - <span id="a_show"></span></p>
+      <div class="row" style="margin:10px;width:100%;font-size:20px;">
+        <label style="color:#fff;">E-Mail</label><br>
+        <input id="email_field" class="" type="text" name="email" style="width:50%">
+        <label for="email_field">@innopolis.ru</label>
+      </div>
+      <div class="row" style="margin:10px;width:100%;font-size:20px;">
+        <label style="color:#fff;">userID</label><br>
+        <input id="alias_field" class="" type="text" name="alias" style="width:80%">
+      </div>
+      <div class="row" style="margin:10px;width:100%">
+        <input id='update_button' class="button_regular" type="button" onclick="updateUser();" value="Save">
+        <input id='delete_button' class="button_regular" type="button" onclick="deleteUser();" value="Delete">
+        <input id='new_button' class="button_regular" type="button" onclick="createUser();" value="New">
+        <form enctype="multipart/form-data" action="/py_scripts/file_add.py" method="post" style="font-size:20px;">
+          <br>
+          <label style="color:#fff;">Add users by email list</label><br> <input type="file" name="filename" accept=".csv,.txt" required/>
+          <p><input class="button_regular" type="submit" value="Upload" /></p>
+        </form>
+      </div>
+
+    </nav>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Feedback</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="../styles/nav_styles.css">
+  <link rel="stylesheet" type="text/css" href="../styles/list_styles.css">
+  <link href="../css/bootstrap.css" rel="stylesheet" />
+  <link href="../css/bootstrap-theme.css" rel="stylesheet" />
+  <script src="../js/jquery-3.2.1.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/feedback_page.js"></script>
+</head>
+<style media="screen">
+  @import url('https://fonts.googleapis.com/css?family=Roboto');
+  html {
+    font-family: Roboto;
+  }
+</style>
+
+<script type="text/javascript">
+</script>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <h1 class="main_header" style="font-family: Roboto;">Feedback</h1>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+        <input class="button_regular" type="button" value="Back" onclick="location.href='/web/nav.html'" style="width:90px;font-size:20px">
+        <label>Filter by rating </label>
+        <select id='rating_selector' onchange="filterRating(this.value);" >
+          <option value="any">Any</option>
+          <option value=1>1</option>
+          <option value=2>2</option>
+          <option value=3>3</option>
+          <option value=4>4</option>
+          <option value=5>5</option>
+        </select>
+      </div>
+      <div id="container" class="col-md-8" style="width:100%;cursor:default">
+      </div>
+      <div class="col-md-2">
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
